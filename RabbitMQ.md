@@ -99,47 +99,47 @@ https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.15
 下载
 
 ```bash
-wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.15/rabbitmq-server-generic-unix-3.7.15.tar.xz</pre>
+wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.15/rabbitmq-server-generic-unix-3.7.15.tar.xz
 ```
 由于是tar.xz格式的所以需要用到xz，没有的话就先安装 
 
 ```bash
-yum install -y xz</pre>
+yum install -y xz
 ```
 第一次解压
 
 ```bash
-/bin/xz -d rabbitmq-server-generic-unix-3.7.15.tar.xz</pre>
+/bin/xz -d rabbitmq-server-generic-unix-3.7.15.tar.xz
 ```
 第二次解压
 
 ```bash
-tar -xvf rabbitmq-server-generic-unix-3.7.15.tar</pre>
+tar -xvf rabbitmq-server-generic-unix-3.7.15.tar
 ```
 移走
 
 ```bash
-mv rabbitmq_server-3.7.15/ /usr/local/</pre>
+mv rabbitmq_server-3.7.15/ /usr/local/
 ```
 改名
 
 ```bash
-mv /usr/local/rabbitmq_server-3.7.15  rabbitmq</pre>
+mv /usr/local/rabbitmq_server-3.7.15  rabbitmq
 ```
 配置环境变量
 
 ```bash
-echo 'export PATH=$PATH:/usr/local/rabbitmq/sbin' >> /etc/profile</pre>
+echo 'export PATH=$PATH:/usr/local/rabbitmq/sbin' >> /etc/profile
 ```
 刷新环境变量
 
 ```bash
-source /etc/profile</pre>
+source /etc/profile
 ```
 创建配置目录
 
 ```bash
-mkdir /etc/rabbitmq</pre>
+mkdir /etc/rabbitmq
 ```
 回到顶部
 
@@ -148,17 +148,17 @@ mkdir /etc/rabbitmq</pre>
 启动：
 
 ```bash
-rabbitmq-server -detached</pre>
+rabbitmq-server -detached
 ```
 停止：
 
 ```bash
-rabbitmqctl stop</pre>
+rabbitmqctl stop
 ```
 状态：
 
 ```bash
-rabbitmqctl status</pre>
+rabbitmqctl status
 ```
 防火墙之类的请自行处理（5672和15672端口），反正我是从来不开防火墙。
 
@@ -169,7 +169,7 @@ rabbitmqctl status</pre>
 开启web插件
 
 ```bash
-rabbitmq-plugins enable rabbitmq_management</pre>
+rabbitmq-plugins enable rabbitmq_management
 ```
 访问：http://127.0.0.1:15672/
 
@@ -184,30 +184,30 @@ rabbitmq-plugins enable rabbitmq_management</pre>
 查看所有用户
 
 ```bash
-rabbitmqctl list_users</pre>
+rabbitmqctl list_users
 ```
 添加一个用户
 
 ```bash
-rabbitmqctl add_user zhaobl 123456</pre>
+rabbitmqctl add_user zhaobl 123456
 ```
 配置权限
 
 ```bash
-rabbitmqctl set_permissions -p "/" zhaobl ".*" ".*" ".*"</pre>
+rabbitmqctl set_permissions -p "/" zhaobl ".*" ".*" ".*"
 ```
 查看用户权限
 
 ```bash
-rabbitmqctl list_user_permissions zhaobl</pre>
+rabbitmqctl list_user_permissions zhaobl
 ```
 设置tag
 
 ```bash
-rabbitmqctl set_user_tags zhaobl administrator</pre>
+rabbitmqctl set_user_tags zhaobl administrator
 ```
 删除用户（安全起见，删除默认用户）
 
 ```bash
-rabbitmqctl delete_user guest</pre>
+rabbitmqctl delete_user guest
 ```

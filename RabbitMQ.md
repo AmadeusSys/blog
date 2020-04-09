@@ -39,7 +39,7 @@ cd /usr/local/otp_src_22.0/
 ```bash
 mkdir ../erlang
 ```
-
+停止：
 配置安装路径
 
 ```bash
@@ -149,7 +149,7 @@ mkdir /etc/rabbitmq</pre>
 
 ```bash
 rabbitmq-server -detached</pre>
-
+```
 停止：
 
 ```bash
